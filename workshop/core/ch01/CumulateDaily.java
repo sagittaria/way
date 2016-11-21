@@ -1,10 +1,24 @@
 import java.util.*;
 
 public class CumulateDaily{
-  public static void main(String[] args) {
-
-  }
+    public static void main(String[] args) {
+        System.out.println("ch01-text-done, please go on.");
+    }
 }
+
+  // public static void main(String[] args) {
+  //   double avg1=avg(3,4.5,10,0);            // put in multiple vars
+  //   System.out.printf("avg1=%f\n",avg1);
+  //   double[] values={3,4.5,10,0};
+  //   double avg2=avg(values);                // or throw in a array
+  //   System.out.printf("avg2=%f\n",avg2);
+  // }
+  // public static double avg(double... values){ // use ... as suffix to specify accepting multiple vars.
+  //   double sum=0;
+  //   for(double v : values) sum+=v;
+  //   return values.length==0 ? 0 : sum/values.length;
+  // }
+
     //multi-dimen. array
     //pascal triangle
     // int n=Integer.parseInt(args[0]);
