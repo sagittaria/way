@@ -3,9 +3,27 @@ import java.util.*;
 
 public class Exercise{
     public static void main(String[] args) {
-
+    	//1~6,12,
     }
 }
+
+/* ex12
+	Random gen=new Random();
+	ArrayList<Integer> sn=new ArrayList<>(Arrays.asList(0,0,0,0,0,0));
+	int[] a=new int[49];
+	for(int j=0;j<49;j++){
+		a[j]=j+1;
+	}
+	for(int i=0;i<6;i++){
+		int idx=gen.nextInt(49);
+		do{
+			sn.set(i, a[idx]);
+			a[idx]=0;
+		}while(sn.get(i)==0);
+	}
+	Collections.sort(sn);
+	System.out.println(sn);
+*/
 
 /* ex06
  	Scanner s = new Scanner(System.in);
