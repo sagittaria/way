@@ -9,7 +9,12 @@ sizeof(int) 返回4，表示内存里int类型长度是4个字节
 &获得变量的地址，所以scanf("%d",&i) 意思是把“扫描得到的数字”扔到变量i(所在的地址)里
 
 输出地址时，不宜当成整数输出
+ex01
 int i; printf("%p",&i);//而不建议用printf("%d",&i);
+ex02
+char ac[]={0,1,2,};
+char *p = ac;
+printf("p = %p\n",p);
 
 int a[] 等价于 int * const a
 
@@ -53,3 +58,32 @@ int *const p3=&i;
 //前两种含义相同--不能通过指针修改，后一种--指针不能被修改
 
 int sum(const int a[], int len);//这样保护保证在函数内部，传入的数组a不被改变
+
+malloc初见
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char const *argv[])
+{
+  int num;
+  int *a=0;//建议初始化指针的时候令其等于0(反正0不可能是个有效位置)，配合最后的free(a)
+  int i;
+  printf("输入数量");
+  scanf("%d", &num);
+  a= (int *)malloc(num*sizeof(int));
+  for(i=0;i<num;i++){
+    scanf("%d", &a[i]);
+  }
+  for (i=num-1;i>=0;i--){
+    printf("%d", a[i]);
+  }
+  free(a); //向系统借了一片内存，最后一定记得要还的！
+  return 0;
+}
+
+地址 0 和 NULL 是同一回事儿
+
+如果申请失败（比如给不了你这么大的内存），返回0或NULL
+
+free只能free你申请来的，不要
+void *p; p=...; p++; free(p); //会提示所free的不是申请来的，出错
