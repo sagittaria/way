@@ -87,3 +87,9 @@ int main(int argc, char const *argv[])
 
 free只能free你申请来的，不要
 void *p; p=...; p++; free(p); //会提示所free的不是申请来的，出错
+
+-------------枚举
+enum color{red, yellow, green}; //这样red、yellow、green分别是代表了int类型的常量0、1、2
+用处：void f(enum color c)
+-------------结构
+struct date *pDate = &today;//结构变量的名字并不是结构变量的地址（而数组是的），所以&today前面的&不能省（而如果是数组，可以省）
