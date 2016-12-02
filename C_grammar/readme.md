@@ -26,6 +26,12 @@ char *str="Hello";
 char word[]="Hello";
 char line[10]="Hello";
 
+  char *b[]={"Jan","Feb","Mar"};//C语言“的”字符串数组！
+  printf("Enter(1,2 or 3): ");
+  int y;
+  scanf("%d", &y);
+  printf("Month: %s\n", b[y-1]);//数组b里各元素中都存了地址，每个地址指向一个字符串
+
 指针使用场景：
 1.交换值
 void swap(int *pa, int *pb)
