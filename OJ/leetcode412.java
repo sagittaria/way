@@ -9,8 +9,8 @@ public class leetcode412 {
 		}
 	}
 	
-    public static List<String> fizzBuzz(int n) {
-        List<String> tmp = new ArrayList<>();
+	public static List<String> fizzBuzz(int n) {
+		List<String> tmp = new ArrayList<>();
 		int i;
 		for(i=0;i<n;i++){
 			if((i+1)%15==0)
@@ -23,5 +23,5 @@ public class leetcode412 {
 				tmp.add(""+(i+1));
 		}
 		return tmp;
-    }
+	}
 }
