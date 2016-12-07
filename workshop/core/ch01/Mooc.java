@@ -31,5 +31,11 @@ public class Mooc {
 		System.out.println(m.getMonthName(5));
 		System.out.println(m.getMonthName(2));
 		System.out.println(m.getMonthName(1));
+		
+		System.out.println("---------------");
+		StringBuffer sb = new StringBuffer();
+		sb.append("first");
+		sb.append(" second");
+		System.out.println(sb.toString());
 	}
 }
