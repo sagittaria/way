@@ -1,3 +1,4 @@
+/*
 package ch02ex12;
 
 public class ExceriseCh02Ex12 {
@@ -8,3 +9,4 @@ public class ExceriseCh02Ex12 {
 		//必须用 java ch02ex12.ExceriseCh02Ex12 执行
 	}
 }
+*/
