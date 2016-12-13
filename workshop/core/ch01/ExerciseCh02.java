@@ -15,7 +15,7 @@ public class ExerciseCh02{
 	 */
 	public static final int DAYS_PER_YEAR = 360;
     public static void main(String[] args){
-    	//1, 5, 6, 7, 9, 11, 12, 13
+    	//1, 5, 6, 7, 9, 11, 12, 13, 14, 15
     	out.println("import static java.lang.System.out");
     }
     /**
