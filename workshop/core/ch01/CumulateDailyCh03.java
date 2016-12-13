@@ -10,13 +10,26 @@ public class CumulateDailyCh03{
     	String two="55555";
     	System.out.println(new LengthComparator().compare(one, two));
     	System.out.println("-------------");
-    	Runnable task = new HelloTask();
-    	Thread thread = new Thread(task);
-    	thread.run();
-    	Runnable task2 = new HelloTask2();
-    	Thread thread2 = new Thread(task2);
-    	thread2.run();
+//    	Runnable task = new HelloTask();
+//    	Thread thread = new Thread(task);
+//    	thread.run();
+//    	Runnable task2 = new HelloTask2();
+//    	Thread thread2 = new Thread(task2);
+//    	thread2.run();
+    	String[] words = {"haha","hehehe","hen"};System.out.println(Arrays.toString(words));
+    	Arrays.sort(words,(String first, String second) -> first.length()-second.length());
+    	System.out.println(Arrays.toString(words));//到此还没太懂...从 JAVASE8 impt 里抄补充看
+    	
+    	CumulateDailyCh03 c03obj = new CumulateDailyCh03();
+    	c03obj.repeatForLambda(5, ()->System.out.println("aqiu"));// 3. 把lambda表达式当成一个可以【run】的东西
     }
+    
+    public void repeatForLambda(int n, Runnable r){// 1. Runnable r是个“函数式接口”
+    	for(int i=0;i<n;i++){
+    		r.run();// 2. r天生带有run()方法
+    	}
+    }
+    
     public static double average(IntSequence seq, int n){
     	int count=0;
     	double sum=0;
