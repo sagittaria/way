@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.IntConsumer;
 
 public class CumulateDailyCh03{
@@ -25,6 +26,13 @@ public class CumulateDailyCh03{
     	c03obj.repeatForLambda(5, ()->System.out.println("aqiu"));// 3. 把lambda表达式当成一个可以【run】的东西
     	
     	c03obj.repeatForLambda2(10, k -> System.out.println("countdown: "+(9-k)));
+    	
+    	c03obj.repeatForLambda3(6, m -> System.out.printf("正在打印 %s...\n" ,m));
+    }    
+    public void repeatForLambda3(int n, Consumer<String> ss){
+    	for(int i=0;i<n;i++){
+    		ss.accept("第"+(i+1)+"次");
+    	}
     }
     
     public void repeatForLambda2(int n, IntConsumer action){
