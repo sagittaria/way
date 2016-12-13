@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.function.IntConsumer;
 
 public class CumulateDailyCh03{
     public static void main(String[] args) {
@@ -22,6 +23,14 @@ public class CumulateDailyCh03{
     	
     	CumulateDailyCh03 c03obj = new CumulateDailyCh03();
     	c03obj.repeatForLambda(5, ()->System.out.println("aqiu"));// 3. 把lambda表达式当成一个可以【run】的东西
+    	
+    	c03obj.repeatForLambda2(10, k -> System.out.println("countdown: "+(9-k)));
+    }
+    
+    public void repeatForLambda2(int n, IntConsumer action){
+    	for(int i=0;i<n;i++){
+    		action.accept(i);
+    	}
     }
     
     public void repeatForLambda(int n, Runnable r){// 1. Runnable r是个“函数式接口”
