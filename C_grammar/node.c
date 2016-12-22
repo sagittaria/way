@@ -13,6 +13,7 @@ typedef struct _list{
 } List;
 
 void add(List* pList, int number);
+void print(List* list);
 
 int main()
 {
@@ -25,6 +26,8 @@ int main()
             add(&list, number);
         }
     } while (number != -1);
+
+    print(&list);
 
     return 0;
 }
@@ -45,4 +48,12 @@ void add(List* pList, int number){
     }else{//else if p is the first node
         pList->head = p;
     }
+}
+
+void print(List* pList){
+    Node *p;//traverse linked-list
+    for(p=pList->head; p; p=p->next){
+        printf("%d\t", p->value);
+    }
+    printf("\n");
 }
