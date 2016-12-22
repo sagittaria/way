@@ -29,6 +29,43 @@ int main()
 
     print(&list);
 
+    int isFound = 0;//search for a number ( if it's in linked-list)
+    scanf("%d",&number);
+    Node *p;
+    for(p=list.head; p; p=p->next){
+        if(p->value == number){
+            printf("found!\n");
+            isFound=1;
+            break;
+        }
+    }
+    if(!isFound){
+        printf("not found.\n");
+    }
+
+
+    scanf("%d",&number);
+    Node *q;//delete from linked-list
+    for(q=NULL, p=list.head; p; q=p, p=p->next){
+        if(p->value == number){
+            if(q){//如果要删的是第一个元素，此时q=NULL
+                q->next = p->next;
+            }else{
+                list.head = p->next;
+            }
+            free(p);
+            break;
+        }
+    }
+    printf("after deletion: ");
+    print(&list);
+
+
+    for(p = list.head; p; p=q){//clear linked-list
+        q = p->next;
+        free(p);
+    }
+
     return 0;
 }
 
