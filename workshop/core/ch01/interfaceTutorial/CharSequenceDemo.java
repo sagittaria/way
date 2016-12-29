@@ -56,7 +56,9 @@ public class CharSequenceDemo implements CharSequence{
 		System.out.println("cs(0, 5) -> subsquence reversed: "+csd_sub3);
 		
 		//CharSequenceDemo csd_sub2 = (CharSequenceDemo) csd.subSequence(0,5);
-		//出错的，CharSequenceDemo 和 CharSequence 是平级的implements，不是继承关系
+		//报错：Exception in thread "main" java.lang.ClassCastException: java.lang.String cannot be cast to interfaceTutorial.CharSequenceDemo
+		//     at interfaceTutorial.CharSequenceDemo.main(CharSequenceDemo.java:58)
+		//为什么？因为csd_sub2 的实际类型是String，而String和CharSequenceDemo没有继承关系，强转会报错。
 		//System.out.println("csd(0,5) -> subsquence reversed: "+csd_sub2);
 	}
 
