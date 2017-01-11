@@ -25,6 +25,12 @@ public class leetcode231 {
 		// ...
 	}
 	
+	public boolean isPowerOfTwoImproveded(int n){
+		return (n>0 && 1073741824%n==0);
+		//1073741824是2^30，而2^31会溢出Integer
+		//次方增长很快，可以全部列举出来。如果n能整除最大的那个，即是true
+	}
+	
 	public static void main(String[] args) {
 		leetcode231 l = new leetcode231();
 		System.out.println(l.isPowerOfTwoImproved(3));
