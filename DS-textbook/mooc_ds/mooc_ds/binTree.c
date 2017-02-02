@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include "binTree.h"
 #include "stack.h"
+#include "queue.h"
 
 void inOrderTraversal(BinTree BT){
 	if (BT){
@@ -26,16 +27,17 @@ void postOrderTraversal(BinTree BT){
 	}
 }
 
+
 void inOrderTraversalStack(BinTree BT){
-	/* 不用递归，自己用堆栈实现中序遍历 */
+	// 不用递归，自己用堆栈实现中序遍历
 	BinTree T = BT;
 	Stack s = CreateStack();
-	while (T || !isEmpty(s)){
+	while (T || !isStackEmpty(s)){
 		while (T){
 			push(s, T);
 			T = T->Left;
 		}
-		if (!isEmpty(s)){
+		if (!isStackEmpty(s)){
 			T = pop(s);
 			printf("%d",T->Data);
 			T = T->Right;
@@ -46,15 +48,42 @@ void inOrderTraversalStack(BinTree BT){
 void preOrderTraversalStack(BinTree BT){
 	BinTree T = BT;
 	Stack s = CreateStack();
-	while (T || !isEmpty(s)){
+	while (T || !isStackEmpty(s)){
 		while (T){
 			printf("%d", T->Data);
 			push(s, T);
 			T = T->Left;
 		}
-		if (!isEmpty(s)){
+		if (!isStackEmpty(s)){
 			T = pop(s);			
 			T = T->Right;
 		}
+	}
+}
+
+int getTreeHeight(BinTree BT){
+	int maxHeight, subLeftHeight, subRightHeight;
+	if (BT){
+		subLeftHeight = getTreeHeight(BT->Left);
+		subRightHeight = getTreeHeight(BT->Right);
+		maxHeight = (subLeftHeight > subRightHeight) ? subLeftHeight : subRightHeight;
+		return maxHeight + 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+void levelOrderTraversal(BinTree BT){
+	Queue q;
+	BinTree t;
+	if (!BT) return;
+	q = CreateQueue();
+	addQ(q, BT);
+	while (!isQueueEmpty(q)){
+		t = deleteQ(q);
+		printf("%d", t->Data);
+		if (t->Left) addQ(q, t->Left);
+		if (t->Right) addQ(q, t->Right);
 	}
 }
