@@ -11,7 +11,7 @@ Stack CreateStack(){
 	return S;
 }
 
-int isEmpty(Stack S){
+int isStackEmpty(Stack S){
 	//c不支持bool类型
 	return (S->Next == NULL);
 }
@@ -29,7 +29,7 @@ SNodeType pop(Stack S){
 	/* 两件事：1.返回栈顶元素的数值，2.删除栈顶元素 */
 	PtrToSNode TopCell;
 	SNodeType TopCellValue;
-	if (isEmpty(S)){
+	if (isStackEmpty(S)){
 		printf("栈已空！");
 		return NULL;
 	}

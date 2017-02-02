@@ -9,6 +9,6 @@ struct SNode
 };
 
 Stack CreateStack();
-int isEmpty(Stack S);
+int isStackEmpty(Stack S);
 int push(Stack S, SNodeType X);
 SNodeType pop(Stack S);
