@@ -48,6 +48,7 @@ int main(){
 	printf("树的高度：%d\n", getTreeHeight(a));
 	levelOrderTraversal(a);
 	printf("  <---借助队列实现层序遍历\n");
-	
+	levelOrderTraversalArray(a);
+	printf("  <---层序遍历-数组版\n");
 	return 0;
 }

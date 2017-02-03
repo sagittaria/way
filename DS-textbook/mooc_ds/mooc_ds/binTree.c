@@ -87,3 +87,17 @@ void levelOrderTraversal(BinTree BT){
 		if (t->Right) addQ(q, t->Right);
 	}
 }
+
+void levelOrderTraversalArray(BinTree BT){
+	//用数组模拟队列
+	BinTree q[100], p;
+	if (!BT) return;
+	int head = 0, tail = 0;
+	q[tail++] = BT;
+	while (tail != head){
+		p = q[head++];
+		printf("%d", p->Data);
+		if (p->Left) q[tail++] = p->Left;
+		if (p->Right) q[tail++] = p->Right;
+	}
+}

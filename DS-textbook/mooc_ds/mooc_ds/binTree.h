@@ -15,3 +15,4 @@ void inOrderTraversalStack(BinTree BT);
 void preOrderTraversalStack(BinTree BT);
 int getTreeHeight(BinTree BT);
 void levelOrderTraversal(BinTree BT);
+void levelOrderTraversalArray(BinTree BT);
