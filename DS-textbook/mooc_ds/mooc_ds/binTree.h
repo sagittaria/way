@@ -1,5 +1,6 @@
 typedef int ElementType;
-typedef struct TNode* BinTree;
+typedef struct TNode* TreePosition;
+typedef TreePosition BinTree;
 
 struct TNode
 {
@@ -16,3 +17,4 @@ void preOrderTraversalStack(BinTree BT);
 int getTreeHeight(BinTree BT);
 void levelOrderTraversal(BinTree BT);
 void levelOrderTraversalArray(BinTree BT);
+TreePosition Find(ElementType x, BinTree bst);

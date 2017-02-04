@@ -101,3 +101,17 @@ void levelOrderTraversalArray(BinTree BT){
 		if (p->Right) q[tail++] = p->Right;
 	}
 }
+
+TreePosition Find(ElementType x, BinTree bst){
+	//递归方式实现二叉搜索树的查找
+	if (!bst) return NULL;
+	if (x > bst->Data){
+		return Find(x,bst->Right);
+	}
+	else if (x < bst->Data){
+		return Find(x,bst->Left);
+	}
+	else{
+		return bst;
+	}
+}
