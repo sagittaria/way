@@ -4,11 +4,11 @@
 
 int main(){
 	/*测试用例二叉树的结构
-				a1
-			   /  \
-			 b2   c3
-			 /    / \
-		   d4   e5   f6
+                a1
+               /  \
+              b2   c3
+             /    /  \
+           d4    e5   f6
 	*/
 	BinTree a = (BinTree)malloc(sizeof(struct TNode));//不要写成sizeof(BinTree)，概念性错误
 	BinTree b = (BinTree)malloc(sizeof(struct TNode));
