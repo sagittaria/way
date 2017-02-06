@@ -33,14 +33,14 @@ int main(){
 	levelOrderTraversalArray(a);	printf("  <---层序遍历-数组版\n");
 
 	/*改成二叉搜索树，
-              a3
+              a7
              /  \
-           b2   c5
-          /    /  \
-        d1    e4   f6
+           b5   c19
+          /    /   \
+        d1    e12   f26
 	*/
-	a->Data = 3;	b->Data = 2;	c->Data = 5;
-	d->Data = 1;	e->Data = 4;	f->Data = 6;
+	a->Data = 7;	b->Data = 5;	c->Data = 19;
+	d->Data = 1;	e->Data = 12;	f->Data = 26;
 
 	int num = 7;
 	TreePosition target = Find(num, a);	
@@ -60,7 +60,24 @@ int main(){
 		printf("找%d？没有！\n", num_v2);
 	}
 	printf("最大值%d，最小值%d\n", (FindMax(a))->Data, (FindMin(a))->Data);
-	
+
+	insert(3, a);
+	preOrderTraversal(a);	printf("  <---插入3之后，先序遍历\n");
+	insert(14, a);
+	preOrderTraversal(a);	printf("  <---插入14之后，先序遍历\n");
+	insert(21, a);
+	preOrderTraversal(a);	printf("  <---插入21之后，先序遍历\n");
+	insert(31, a);
+	preOrderTraversal(a);	printf("  <---插入31之后，先序遍历\n");
+	/*插入节点后
+          a7
+        /    \
+      b5      c19
+     /       /   \
+   d1      e12    f26
+    \       \     /  \
+     3      14   21   31
+	*/
 
 	return 0;
 }

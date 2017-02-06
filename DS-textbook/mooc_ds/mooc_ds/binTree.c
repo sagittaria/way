@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include "binTree.h"
 #include "stack.h"
 #include "queue.h"
@@ -6,14 +7,14 @@
 void inOrderTraversal(BinTree BT){
 	if (BT){
 		inOrderTraversal(BT->Left);
-		printf("%d", BT->Data);
+		printf("%d, ", BT->Data);
 		inOrderTraversal(BT->Right);
 	}
 }
 
 void preOrderTraversal(BinTree BT){
 	if (BT){
-		printf("%d", BT->Data);
+		printf("%d, ", BT->Data);
 		preOrderTraversal(BT->Left);
 		preOrderTraversal(BT->Right);
 	}
@@ -23,7 +24,7 @@ void postOrderTraversal(BinTree BT){
 	if (BT){
 		postOrderTraversal(BT->Left);		
 		postOrderTraversal(BT->Right);
-		printf("%d", BT->Data);
+		printf("%d, ", BT->Data);
 	}
 }
 
@@ -39,7 +40,7 @@ void inOrderTraversalStack(BinTree BT){
 		}
 		if (!isStackEmpty(s)){
 			T = pop(s);
-			printf("%d",T->Data);
+			printf("%d, ",T->Data);
 			T = T->Right;
 		}
 	}
@@ -50,7 +51,7 @@ void preOrderTraversalStack(BinTree BT){
 	Stack s = CreateStack();
 	while (T || !isStackEmpty(s)){
 		while (T){
-			printf("%d", T->Data);
+			printf("%d, ", T->Data);
 			push(s, T);
 			T = T->Left;
 		}
@@ -82,7 +83,7 @@ void levelOrderTraversal(BinTree BT){
 	addQ(q, BT);
 	while (!isQueueEmpty(q)){
 		t = deleteQ(q);
-		printf("%d", t->Data);
+		printf("%d, ", t->Data);
 		if (t->Left) addQ(q, t->Left);
 		if (t->Right) addQ(q, t->Right);
 	}
@@ -96,7 +97,7 @@ void levelOrderTraversalArray(BinTree BT){
 	q[tail++] = BT;
 	while (tail != head){
 		p = q[head++];
-		printf("%d", p->Data);
+		printf("%d, ", p->Data);
 		if (p->Left) q[tail++] = p->Left;
 		if (p->Right) q[tail++] = p->Right;
 	}
@@ -152,4 +153,22 @@ TreePosition FindMax(BinTree bst){
 		}
 	}
 	return b;
+}
+
+TreePosition insert(ElementType x, BinTree bst){
+	if (!bst){
+		bst = (BinTree)malloc(sizeof(struct TNode));
+		bst->Data = x;
+		bst->Left = NULL;
+		bst->Right = NULL;
+	}
+	else{
+		if (x < bst->Data){
+			bst->Left = insert(x, bst->Left);
+		}
+		else if (x > bst->Data){
+			bst->Right = insert(x, bst->Right);
+		}
+	}
+	return bst;
 }
