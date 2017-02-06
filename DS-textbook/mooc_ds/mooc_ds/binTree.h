@@ -18,3 +18,6 @@ int getTreeHeight(BinTree BT);
 void levelOrderTraversal(BinTree BT);
 void levelOrderTraversalArray(BinTree BT);
 TreePosition Find(ElementType x, BinTree bst);
+TreePosition Find_v2(ElementType x, BinTree bst);
+TreePosition FindMin(BinTree bst);
+TreePosition FindMax(BinTree bst);

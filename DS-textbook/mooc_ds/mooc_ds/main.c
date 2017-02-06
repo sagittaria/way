@@ -39,20 +39,28 @@ int main(){
           /    /  \
         d1    e4   f6
 	*/
-	a->Data = 3;
-	b->Data = 2;
-	c->Data = 5;
-	d->Data = 1;
-	e->Data = 4;
-	f->Data = 6;
+	a->Data = 3;	b->Data = 2;	c->Data = 5;
+	d->Data = 1;	e->Data = 4;	f->Data = 6;
 
 	int num = 7;
-	TreePosition target = Find(num, a);
+	TreePosition target = Find(num, a);	
 	if (target){
 		printf("找%d？有的！\n", target->Data);
 	}
 	else{
 		printf("找%d？没有！\n", num);
 	}
+
+	int num_v2 = 4;
+	TreePosition target_v2 = Find_v2(num_v2, a);
+	if (target_v2){
+		printf("找%d？有的！\n", target_v2->Data);
+	}
+	else{
+		printf("找%d？没有！\n", num_v2);
+	}
+	printf("最大值%d，最小值%d\n", (FindMax(a))->Data, (FindMin(a))->Data);
+	
+
 	return 0;
 }

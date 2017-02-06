@@ -115,3 +115,41 @@ TreePosition Find(ElementType x, BinTree bst){
 		return bst;
 	}
 }
+
+TreePosition Find_v2(ElementType x, BinTree bst){
+	//改为用循环实现
+	BinTree b = bst;
+	while (b){
+		if (x > b->Data){
+			b = b->Right;
+		}
+		else if(x<b->Data){
+			b = b->Left;
+		}
+		else{
+			return b;
+		}
+	}
+	return NULL;
+}
+
+TreePosition FindMin(BinTree bst){
+	//一定是最左端那个节点（不一定是最左下）
+	BinTree b = bst;
+	if (b){
+		while (b->Left){
+			b = b->Left;
+		}
+	}
+	return b;
+}
+TreePosition FindMax(BinTree bst){
+	//一定是最右端那个节点（不一定是最右下）
+	BinTree b = bst;
+	if (b){
+		while (b->Right){
+			b = b->Right;
+		}
+	}
+	return b;
+}
