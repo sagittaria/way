@@ -22,3 +22,4 @@ TreePosition Find_v2(ElementType x, BinTree bst);
 TreePosition FindMin(BinTree bst);
 TreePosition FindMax(BinTree bst);
 TreePosition insert(ElementType x, BinTree bst);
+BinTree delete(ElementType x, BinTree bst);

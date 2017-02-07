@@ -172,3 +172,34 @@ TreePosition insert(ElementType x, BinTree bst){
 	}
 	return bst;
 }
+
+BinTree delete(ElementType x, BinTree bst){
+	TreePosition tmp;
+	if (!bst){
+		printf("没找到要删除的元素%d\n",x);
+	}
+	else if (x < bst->Data){
+		bst->Left = delete(x, bst->Left);//左子树递归删除
+	}
+	else if (x>bst->Data){
+		bst->Right = delete(x, bst->Right);//右子树递归删除
+	}
+	else{//相等，说明找到了要删除的节点
+		if (bst->Left && bst->Right){//如果左右儿子都不为空
+			tmp = FindMin(bst->Right);
+			bst->Data = tmp->Data;
+			bst->Right = delete(bst->Data, bst->Right);
+		}
+		else{
+			tmp = bst;
+			if (!bst->Left){//如果只有右子或者根本没有子节点
+				bst = bst->Right;//用右子（可能是NULL）来代替被删掉的那个节点
+			}
+			else if (!bst->Right){//如果只有左子或者根本没有子节点
+				bst = bst->Left;//用左子（可能是NULL）来代替被删掉的那个节点
+			}
+			free(tmp);
+		}
+	}
+	return bst;
+}

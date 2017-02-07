@@ -69,15 +69,22 @@ int main(){
 	preOrderTraversal(a);	printf("  <---插入21之后，先序遍历\n");
 	insert(31, a);
 	preOrderTraversal(a);	printf("  <---插入31之后，先序遍历\n");
-	/*插入节点后
-          a7
-        /    \
-      b5      c19
-     /       /   \
-   d1      e12    f26
-    \       \     /  \
-     3      14   21   31
+	/*插入节点后                  删除14                  删除d1                    删除19
+          a7                         a7                     a7                       a7
+        /    \                     /    \                  /   \                    /  \
+      b5      c19                b5     c19              b5    c19                b5   c21
+     /       /   \               /     /    \            /     /  \              /     /  \
+   d1      e12    f26          d1    e12    f26         3   e12   f26           3    e12   f26
+    \       \     /  \          \           /  \                  /  \                       \
+     3      14   21   31         3         21   31               21   31                      31
 	*/
+	delete(14, a);
+	preOrderTraversal(a);	printf("  <---删除14之后，先序遍历\n");
+	delete(1, a);
+	preOrderTraversal(a);	printf("  <---删除1之后，先序遍历\n");
+	delete(19, a);
+	preOrderTraversal(a);	printf("  <---删除19之后，先序遍历\n");
+	delete(20, a);//“没找到要删除的元素20”
 
 	return 0;
 }
